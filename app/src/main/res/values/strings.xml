@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EmiReminderFinal</string>
+    <string-array name="spn_category">
+        <item>SELECT CATEGORY</item>
+        <item>Bank</item>
+        <item>Grocery</item>
+        <item>Electrical Item</item>
+        <item>Other</item>
+    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
