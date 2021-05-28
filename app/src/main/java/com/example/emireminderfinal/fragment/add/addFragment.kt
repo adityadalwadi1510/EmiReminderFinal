@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.emireminderfinal.Data.Emi
-import com.example.emireminderfinal.Data.EmiViewModel
+import com.example.emireminderfinal.model.Emi
+import com.example.emireminderfinal.viewmodel.EmiViewModel
 import com.example.emireminderfinal.R
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
@@ -79,7 +79,15 @@ class addFragment : Fragment() {
         val emiCategory = spn_category.selectedItem.toString()
         val emiDis = edt_emi_des.text.toString()
         if (inputCheck(emiName, emiRs, emiDuration, emiDueDate, emiCategory)) {
-            val emi = Emi(0, emiName, emiRs, emiDueDate, emiCategory, emiDis, emiDuration)
+            val emi = Emi(
+                0,
+                emiName,
+                emiRs,
+                emiDueDate,
+                emiCategory,
+                emiDis,
+                emiDuration
+            )
             mEmiViewModel.addUser(emi)
             Toast.makeText(requireContext(), "Inserted", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)

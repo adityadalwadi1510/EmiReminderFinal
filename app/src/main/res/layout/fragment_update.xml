@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".fragment.add.addFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Add Emi"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/edt_emi_name_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Emi Name"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/edt_emi_rs_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Emi rs"
+        android:inputType="number"
+        android:padding="15dp" />
+    <EditText
+        android:id="@+id/edt_emi_duration_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Duration In months"
+        android:inputType="number"
+        android:padding="15dp" />
+    <TextView
+        android:id="@+id/txt_due_date_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:drawableRight="@drawable/ic_calender"
+        android:padding="5dp"
+        android:text="Due Date"
+        android:textSize="20dp"
+
+        />
+
+    <Spinner
+        android:id="@+id/spn_category_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:entries="@array/spn_category"
+
+        android:padding="5dp" />
+    <EditText
+        android:id="@+id/edt_emi_des_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:lines="3"
+        android:hint="Emi Description(Not mandotory)"
+        android:padding="15dp" />
+    <Button
+        android:id="@+id/btn_add_emi_updt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="Update"
+        android:textSize="20sp" />
+
+
+</LinearLayout>

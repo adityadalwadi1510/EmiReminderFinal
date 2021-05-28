@@ -4,9 +4,10 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.emireminderfinal.Data.Emi
+import com.example.emireminderfinal.model.Emi
 import com.example.emireminderfinal.R
 import kotlinx.android.synthetic.main.custom_row.view.*
 import java.text.SimpleDateFormat
@@ -66,6 +67,10 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.EmiViewHolder>() {
         val currentDay = currentDate.substring(0, 2).toInt()
         val currentMonth = currentDate.substring(3, 5).toInt()
         val currentItem = emiList[position]
+        holder.itemView.card_view.setOnClickListener {
+            val action=ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
         val date = currentItem.dueDate.substring(0, 2).toInt()
         val month1 = currentItem.dueDate.substring(3, 5)
         var monthActual = month1.toInt()

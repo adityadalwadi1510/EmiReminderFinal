@@ -1,10 +1,8 @@
 package com.example.emireminderfinal.Data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.example.emireminderfinal.model.Emi
 
 @Dao
 interface EmiDao {
@@ -14,4 +12,12 @@ interface EmiDao {
 
     @Query(value = "SELECT * FROM  emi_table")
     fun readEmi():LiveData<List<Emi>>
+    @Update
+    suspend fun updateEmi(emi: Emi)
+
+    @Delete
+    suspend fun deleteEmi(emi: Emi)
+
+    @Query(value = "DELETE FROM emi_table")
+    suspend fun deleteAllEmi()
 }
