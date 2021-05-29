@@ -8,10 +8,13 @@ import com.example.emireminderfinal.model.Emi
 interface EmiDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend  fun addEmi(emi: Emi)
+    suspend fun addEmi(emi: Emi)
 
-    @Query(value = "SELECT * FROM  emi_table")
-    fun readEmi():LiveData<List<Emi>>
+
+    @Query(value = "SELECT * FROM  emi_table WHERE totalCompeleted = 0")
+    fun readEmi(): LiveData<List<Emi>>
+
+
     @Update
     suspend fun updateEmi(emi: Emi)
 
@@ -20,4 +23,5 @@ interface EmiDao {
 
     @Query(value = "DELETE FROM emi_table")
     suspend fun deleteAllEmi()
+
 }

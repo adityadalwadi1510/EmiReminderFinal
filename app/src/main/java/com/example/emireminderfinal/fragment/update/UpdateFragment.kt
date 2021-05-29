@@ -9,11 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.emireminderfinal.R
 import com.example.emireminderfinal.model.Emi
-
 import com.example.emireminderfinal.viewmodel.EmiViewModel
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
-
 
 class UpdateFragment : Fragment() {
 
@@ -54,7 +52,15 @@ class UpdateFragment : Fragment() {
         val emicategory = spn_category_updt.selectedItem.toString()
         if (inputCheck(emiName, emirs, emiduration, emiduedate, emicategory)) {
             val updateEmi = Emi(
-                args.currentUser.id, emiName, emirs, emiduedate, emicategory, emides, emiduration
+                args.currentUser.id,
+                emiName,
+                emirs,
+                emiduedate,
+                emicategory,
+                emides,
+                emiduration,
+                args.currentUser.completed,
+                0
             )
             mEmiViewModel.updateEmi(updateEmi)
             Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()

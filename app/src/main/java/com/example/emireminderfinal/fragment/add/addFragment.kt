@@ -10,9 +10,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.emireminderfinal.R
 import com.example.emireminderfinal.model.Emi
 import com.example.emireminderfinal.viewmodel.EmiViewModel
-import com.example.emireminderfinal.R
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 import java.util.*
@@ -86,7 +86,9 @@ class addFragment : Fragment() {
                 emiDueDate,
                 emiCategory,
                 emiDis,
-                emiDuration
+                emiDuration,
+                0,
+                0
             )
             mEmiViewModel.addUser(emi)
             Toast.makeText(requireContext(), "Inserted", Toast.LENGTH_LONG).show()
@@ -112,5 +114,6 @@ class addFragment : Fragment() {
         }
         return true
     }
+
 
 }

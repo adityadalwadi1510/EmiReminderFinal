@@ -13,38 +13,38 @@ import kotlinx.coroutines.launch
 class EmiViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<Emi>>
     private val emiRepository: EmiRepository
+
     init {
         val emiDao =
             EmiDatabase.getDatabase(
                 application
             ).emiDao()
 
-        emiRepository =
-            EmiRepository(emiDao)
+        emiRepository = EmiRepository(emiDao)
 
-        readAllData=emiRepository.readAllData
+        readAllData = emiRepository.readAllData
     }
 
-    fun addUser(emi: Emi){
-        viewModelScope.launch (Dispatchers.IO){  emiRepository.addEmi(emi) }
+    fun addUser(emi: Emi) {
+        viewModelScope.launch(Dispatchers.IO) { emiRepository.addEmi(emi) }
 
     }
 
-    fun updateEmi(emi: Emi){
+    fun updateEmi(emi: Emi) {
         viewModelScope.launch(Dispatchers.IO) {
             emiRepository.updateEmi(emi)
         }
     }
 
-    fun deleteEmi(emi: Emi){
+    fun deleteEmi(emi: Emi) {
         viewModelScope.launch(Dispatchers.IO) {
             emiRepository.deleteEmi(emi)
         }
     }
-    fun deleteAll(){
+
+    fun deleteAll() {
         viewModelScope.launch(Dispatchers.IO) {
             emiRepository.deleteAll()
         }
     }
-
 }

@@ -15,19 +15,19 @@ abstract class EmiDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: EmiDatabase? = null
 
-        fun getDatabase(context: Context):EmiDatabase{
-            val tempInstance= INSTANCE
-            if(tempInstance != null){
+        fun getDatabase(context: Context): EmiDatabase {
+            val tempInstance = INSTANCE
+            if (tempInstance != null) {
                 return tempInstance
             }
-            synchronized(this){
-                val instance= Room.databaseBuilder(
+            synchronized(this) {
+                val instance = Room.databaseBuilder(
                     context.applicationContext,
                     EmiDatabase::class.java,
                     "emi_database"
                 ).build()
-                INSTANCE=instance
-                return  instance
+                INSTANCE = instance
+                return instance
             }
         }
     }
