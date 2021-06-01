@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.emireminderfinal.R
 import com.example.emireminderfinal.model.Emi
 import com.example.emireminderfinal.viewmodel.EmiViewModel
+
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 import java.util.*
@@ -43,14 +44,15 @@ class addFragment : Fragment() {
             val dpd = DatePickerDialog(
                 requireContext(),
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    var dayOfMonthDummy = "$dayOfMonth"
+
+                    var dayOfMonthDummy = "${dayOfMonth}"
                     Log.d("dummy", dayOfMonthDummy)
                     if (dayOfMonthDummy.length == 1) {
                         dayOfMonthDummy = "0$dayOfMonth"
                         Log.d("dummy", dayOfMonthDummy)
                     }
 
-                    var monthOfYearDummy = "$monthOfYear"
+                    var monthOfYearDummy = "${monthOfYear + 1}"
                     if (monthOfYearDummy.length == 1) {
                         monthOfYearDummy = "0$monthOfYearDummy"
                     }

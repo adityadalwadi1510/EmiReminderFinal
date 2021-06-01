@@ -7,7 +7,7 @@ import com.example.emireminderfinal.model.Emi
 class EmiRepository(private val emiDao: EmiDao) {
 
     val readAllData: LiveData<List<Emi>> = emiDao.readEmi()
-
+    val readAllDataCompleted:LiveData<List<Emi>> = emiDao.readEmiCompleted()
     suspend fun addEmi(emi: Emi) {
         emiDao.addEmi(emi)
     }

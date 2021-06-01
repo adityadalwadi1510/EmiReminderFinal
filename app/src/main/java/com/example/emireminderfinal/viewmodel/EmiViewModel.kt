@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class EmiViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<Emi>>
     private val emiRepository: EmiRepository
+    val readAllDataCompleted: LiveData<List<Emi>>
 
     init {
         val emiDao =
@@ -23,6 +24,7 @@ class EmiViewModel(application: Application) : AndroidViewModel(application) {
         emiRepository = EmiRepository(emiDao)
 
         readAllData = emiRepository.readAllData
+        readAllDataCompleted = emiRepository.readAllDataCompleted
     }
 
     fun addUser(emi: Emi) {

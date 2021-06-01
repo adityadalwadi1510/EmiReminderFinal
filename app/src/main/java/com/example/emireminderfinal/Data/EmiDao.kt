@@ -14,6 +14,8 @@ interface EmiDao {
     @Query(value = "SELECT * FROM  emi_table WHERE totalCompeleted = 0")
     fun readEmi(): LiveData<List<Emi>>
 
+    @Query(value = "SELECT * FROM  emi_table WHERE totalCompeleted = 1")
+    fun readEmiCompleted(): LiveData<List<Emi>>
 
     @Update
     suspend fun updateEmi(emi: Emi)

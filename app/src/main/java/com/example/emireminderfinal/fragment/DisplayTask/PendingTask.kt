@@ -1,36 +1,32 @@
-package com.example.emireminderfinal.fragment.list
+package com.example.emireminderfinal.fragment.DisplayTask
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.ListAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.emireminderfinal.AllTask
+
 import com.example.emireminderfinal.R
 import com.example.emireminderfinal.model.Emi
-
 import com.example.emireminderfinal.viewmodel.EmiViewModel
-import kotlinx.android.synthetic.main.fragment_list.view.*
+import kotlinx.android.synthetic.main.fragment_pending_task.view.*
 
-class ListFragment : Fragment(), ListAdapter.sample {
+class PendingTask : Fragment(), com.example.emireminderfinal.fragment.list.ListAdapter.sample {
 
     private lateinit var mEmiViewModel: EmiViewModel
-    lateinit var intent: Intent
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_list, container, false)
-
-        val adapter = ListAdapter(this)
-        val recyclerView = view.recyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val view = inflater.inflate(R.layout.fragment_pending_task, container, false)
+        val adapter = com.example.emireminderfinal.fragment.list.ListAdapter(this)
+        val recyclerViewPendingTask = view.recyclerViewPendingTask
+        recyclerViewPendingTask.adapter = adapter
+        recyclerViewPendingTask.layoutManager = LinearLayoutManager(requireContext())
 
         mEmiViewModel = ViewModelProvider(this).get(EmiViewModel::class.java)
         mEmiViewModel.readAllData.observe(viewLifecycleOwner, Observer { emi ->
@@ -38,13 +34,10 @@ class ListFragment : Fragment(), ListAdapter.sample {
         })
 
 
-        view.floating_add_button.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addFragment)
-        }
-        setHasOptionsMenu(true)
-        return view;
-    }
 
+        setHasOptionsMenu(true)
+        return view
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu, menu)
@@ -53,10 +46,6 @@ class ListFragment : Fragment(), ListAdapter.sample {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_delete) {
             deleteEmi()
-        }
-        if (item.itemId == R.id.menu_done) {
-            val intent = Intent(getActivity(), AllTask::class.java)
-            getActivity()?.startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
     }

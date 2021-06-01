@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_delete"
         android:iconTint="@color/white"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/menu_done"
+        android:title="Task"
+        android:icon="@drawable/ic_baseline_cloud_done_24"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom"/>
 </menu>
